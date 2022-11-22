@@ -128,7 +128,7 @@ const LatestRoles = forwardRef((props, ref) => {
 
     <section className='container max-w-8xl mx-auto justify-center items-center p-4 md:p-8 lg:pb-44 lg:mt-6 text-[#17494D]'>
         <h2 className="font-oxygen font-bold text-5xl text-left text-[#202124] pb-12 md:pb-24">We’re nothing like the Recruitment Agencies out there. But don’t just take our word for it…</h2>
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 justify-center items-center">
             {/* MAPPING THROUGH RECOMMENDATIONS (AGENCIES ARRAY) DESKTOP VIEW */}
             {agencies.map((agency, index) => (
@@ -146,7 +146,7 @@ const LatestRoles = forwardRef((props, ref) => {
         </div>
 
         {/* MOBILE SWIPER */}
-            <Swiper className='md:hidden' slidesPerView={1} pagination={{clickable: true}}>
+            <Swiper className='lg:hidden' slidesPerView={1} pagination={{clickable: true}}>
                 {agencies.map((agency, index) => (
                     <SwiperSlide key={index}>
                         
