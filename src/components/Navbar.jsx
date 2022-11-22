@@ -71,7 +71,7 @@ function Navbar() {
                         
                         {/* This navbar button uses animate ping on an absolute surrounding rounded border for a nice animation effect */}
                         <button className='w-14 h-14 flex items-center justify-center '>
-                            <img className='w-12 h-12 relative' src={navButton} alt="" /> 
+                            <img className='h-10 w-10 md:w-12 md:h-12 relative' src={navButton} alt="" /> 
                             <div className='absolute w-14 h-14 border border-orange-500 rounded-full hover:animate-ping'>
                             </div>
                         </button>

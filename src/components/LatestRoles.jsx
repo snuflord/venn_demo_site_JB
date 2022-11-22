@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom'
+import { forwardRef } from 'react'
 import buttonArrow from '../images/buttonArrow.svg'
 import arrowButton from '../images/arrowButton.svg'
 import savillsIcon from '../images/savillsIcon.svg'
@@ -6,10 +7,7 @@ import thornleyGroves from '../images/thornleyGroves.svg'
 import FAC from '../images/FAC.svg'
 
 
-
-function LatestRoles() {
-
-    
+const LatestRoles = forwardRef((props, ref) => {
 
     const roles = [
         {
@@ -56,7 +54,7 @@ function LatestRoles() {
 
   return (
     <>
-    <section className="container max-w-8xl mx-auto justify-center items-center p-4 md:p-8 lg:mt-[16rem] text-[#17494D]">
+    <section ref={ref} className="container max-w-8xl mx-auto justify-center items-center p-4 md:p-8 lg:mt-[16rem] text-[#17494D]">
     <h2 className="font-oxygen font-bold text-4xl text-left text-[#202124]">Latest Roles</h2>
     <div className="flex flex-col items-start py-5 border-black border-b-1 md:flex-row md:justify-between md:items-center space-y-6 md:space-y-0">
         <p className="font-oxygen font-bold justify-center text-2xl text-[#202124]">Recent opportunities across Finance, Mortgages and Property</p>
@@ -127,6 +125,6 @@ function LatestRoles() {
     </section>
     </>
   )
-}
+})
 
 export default LatestRoles

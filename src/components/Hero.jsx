@@ -4,14 +4,13 @@ import search_white from '../images/whiteSearch.svg'
 import arrowButton from '../images/arrowButton.svg'
 import downArrow from '../images/downArrow.svg'
 import {Link} from 'react-router-dom'
-import {useRef} from 'react'
 
-function Hero() {
 
-const ref = useRef(null)
+function Hero({ resultRef }) {
 
+// This function scrolls to LatestRoles section (smooth scrolling not working?)
 const smoothScroller = () => {
-    ref.current?.scrollIntoView({behaviour: 'smooth'});
+    resultRef.current?.scrollIntoView({behaviour: "smooth"});
 }
 
   return (
@@ -21,7 +20,7 @@ const smoothScroller = () => {
 
             {/* justify end here pushes white box to right of screen */}
             <div className="flex items-center justify-end">
-                {/* hero container content class makes  */}
+                {/* setting custom width/height  */}
                 <aside className="flex h-[80vh] items-center justify-center relative z-20 w-full md:w-3/4 bg-[#F7F4EF]"> 
                     {/* This div is the orange line */}
                     <div className='hidden z-10 lg:absolute bg-[#FC7753] transition-all duration-700 lg:top-64 lg:left-40 lg:h-1 w-0 lg:w-3/5 lg:block'></div>
@@ -59,11 +58,11 @@ const smoothScroller = () => {
                 </div>
             </div>
 
-            {/* This div below is the orange arrow/message to the left - absolute to the section element */}
-            <div className='hidden lg:block absolute -left-8 top-1/2'>
+            {/* This div below is the orange arrow/message to the left - absolute to the section element clicking this element will send user to latest roles.*/}
+            <div className='hidden lg:block absolute group -left-8 top-1/2 hover:cursor-pointer'>
                 <div onClick={smoothScroller} className="flex flex-col space-y-32 ">
                     <p className='-rotate-90 uppercase text-[#FC7753] tracking-widest'>start your search</p>
-                    <img className='hidden lg:block h-24 rotate--180' src={downArrow} alt="" />
+                    <img className='hidden lg:block h-24 rotate--180 group-hover:animate-bounce' src={downArrow} alt="" />
                 </div>
             </div>
             
