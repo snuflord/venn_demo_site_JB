@@ -1,5 +1,7 @@
 import {Link} from 'react-router-dom'
 import { forwardRef } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 import buttonArrow from '../images/buttonArrow.svg'
 import arrowButton from '../images/arrowButton.svg'
 import savillsIcon from '../images/savillsIcon.svg'
@@ -9,6 +11,7 @@ import FAC from '../images/FAC.svg'
 
 const LatestRoles = forwardRef((props, ref) => {
 
+    // JOBS ARRAY
     const roles = [
         {
           name: 'Electrical Conductor Researcher',
@@ -52,6 +55,31 @@ const LatestRoles = forwardRef((props, ref) => {
           },
       ]
 
+      // AGENCIES ARRAY
+      const agencies = [
+        {
+            image: savillsIcon,
+            title: 'Property Sector',
+            description: '“Blockquote Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua”',
+            name: 'Mike Young',
+            role: 'Managing Director'
+        },
+        {
+            image: thornleyGroves,
+            title: 'Property Sector',
+            description: '“Blockquote Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua”',
+            name: 'Mike Young',
+            role: 'Managing Director'
+        },
+        {
+            image: FAC,
+            title: 'Finance Sector',
+            description: '“Blockquote Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua”',
+            name: 'Mike Young',
+            role: 'Managing Director'
+        },
+      ]
+
   return (
     <>
     <section ref={ref} className="container max-w-8xl mx-auto justify-center items-center p-4 md:p-8 lg:mt-[16rem] text-[#17494D]">
@@ -64,6 +92,7 @@ const LatestRoles = forwardRef((props, ref) => {
         </Link>
     </div>
 
+    {/* MAPPING THROUGH JOB LISTINGS (ROLES ARRAY) */}
     <div className="grid grid-cols-1 pt-6 gap-2 md:grid-cols-2 xl:grid-cols-4 lg:pt-16">
         {roles.map((role, index) => (
           <div key={index} className='bg-[#F7F4EF] p-6 border-[#F7F4EF] border-1 hover:border-[#FC7753] transition-all duration-200'>
@@ -99,29 +128,39 @@ const LatestRoles = forwardRef((props, ref) => {
 
     <section className='container max-w-8xl mx-auto justify-center items-center p-4 md:p-8 lg:pb-44 lg:mt-6 text-[#17494D]'>
         <h2 className="font-oxygen font-bold text-5xl text-left text-[#202124] pb-12 md:pb-24">We’re nothing like the Recruitment Agencies out there. But don’t just take our word for it…</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 justify-center items-center">
-            <div className="flex-flex-col space-y-4">
-                <img src={savillsIcon} alt="" />
-                <h3 className='text-[#FC7753] pt-2 pb-5 border-b-1 border-[#FC7753]'>Property Sector</h3>
-                <p className='w-[90%] pt-2'>“Blockquote Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua”</p>
-                <p className='font-bold'>Mike Young</p>
-                <p className='text-[#FC7753]'>Managing Director</p>
-            </div>
-            <div className="flex-flex-col space-y-4">
-                <img src={thornleyGroves} alt="" />
-                <h3 className='text-[#FC7753] pt-2 pb-5 border-b-1 border-[#FC7753]'>Property Sector</h3>
-                <p className='w-[90%] pt-2'>“Blockquote Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua”</p>
-                <p className='font-bold'>Mike Young</p>
-                <p className='text-[#FC7753]'>Managing Director</p>
-            </div>
-            <div className="flex-flex-col space-y-4">
-                <img src={FAC} alt="" />
-                <h3 className='text-[#FC7753] pt-2 pb-5 border-b-1 border-[#FC7753]'>Finance Sector</h3>
-                <p className='w-[90%] pt-2'>“Blockquote Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua”</p>
-                <p className='font-bold'>Mike Young</p>
-                <p className='text-[#FC7753]'>Managing Director</p>
+        <div className="hidden md:block">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 justify-center items-center">
+            {/* MAPPING THROUGH RECOMMENDATIONS (AGENCIES ARRAY) DESKTOP VIEW */}
+            {agencies.map((agency, index) => (
+                <div key={index}>
+                    <div className="flex-flex-col space-y-4">
+                        <img src={agency.image} alt="" />
+                        <h3 className='text-[#FC7753] pt-2 pb-5 border-b-1 border-[#FC7753]'>{agency.title}</h3>
+                        <p className='w-[90%] pt-2'>{agency.description}</p>
+                        <p className='font-bold'>{agency.name}</p>
+                        <p className='text-[#FC7753]'>{agency.role}</p>
+                    </div>
+                </div>
+            ))}
             </div>
         </div>
+
+        {/* MOBILE SWIPER */}
+            <Swiper className='md:hidden' slidesPerView={1} pagination={{clickable: true}}>
+                {agencies.map((agency, index) => (
+                    <SwiperSlide key={index}>
+                        
+                            <div className="flex-flex-col space-y-4">
+                                <img src={agency.image} alt="" />
+                                <h3 className='text-[#FC7753] pt-2 pb-5 border-b-1 border-[#FC7753]'>{agency.title}</h3>
+                                <p className='w-[90%] pt-2'>{agency.description}</p>
+                                <p className='font-bold'>{agency.name}</p>
+                                <p className='text-[#FC7753]'>{agency.role}</p>
+                            </div>
+                        
+                    </SwiperSlide>
+                ))}
+            </Swiper>
     </section>
     </>
   )
