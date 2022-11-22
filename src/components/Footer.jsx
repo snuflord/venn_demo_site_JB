@@ -8,30 +8,37 @@ import returnUp from '../images/returnUp.svg'
 
 function Footer() {
 
+    const [toggleAnimation1, setToggleAnimation1] = useState(false)
+    const [toggleAnimation2, setToggleAnimation2] = useState(false)
+    const [toggleAnimation3, setToggleAnimation3] = useState(false)
     const [displayContent, setDisplayContent] = useState(false)
     const [displayLinks, setDisplayLinks] = useState(false)
     const [displayIndustries, setDisplayIndustries] = useState(false)
 
     const showContent = (e) => {
+        setToggleAnimation1(off => !off)
         setDisplayContent(off => !off)
     }
     const showLinks = (e) => {
+        setToggleAnimation2(off => !off)
         setDisplayLinks(off => !off)
     }
     const showIndustries = (e) => {
+        setToggleAnimation3(off => !off)
         setDisplayIndustries(off => !off)
     }
 
-  return (
+    return (
     <>
 
-<footer className="container max-w-8xl mx-auto justify-center items-center my-12 p-4 md:p-8 text-[#293135]">
+    <footer className="container max-w-8xl mx-auto justify-center items-center my-12 p-4 md:p-8 text-[#293135]">
         <div className="grid grid-cols-1 md:grid-cols-2 space-y-10 md:space-y-0 lg:grid-cols-3 xl:grid-cols-4 md:gap-6 justify-center">
             {/* CONTACT US */}
             <div className="flex flex-col text-left">
                 <span className='group cursor-pointer md:cursor-default justify-between flex pb-6' onClick={showContent}>
                     <p className='font-oxygen font-bold text-2xl'>Contact Us</p>
-                    <p className='md:hidden text-3xl transition duration-300 font-bold group-hover:text-[#FC7753]'>+</p>
+                    {/* This ternary operator checks the state - if the state is true, this element has a classname that enables animation, else it does not */}
+                    <p className={toggleAnimation1 ? 'md:hidden text-3xl transition duration-300 font-bold group-hover:text-[#FC7753] rotate-45' : 'md:hidden text-3xl transition duration-300 font-bold group-hover:text-[#FC7753]'}>+</p>
                 </span>
                 {/* Normal menu (medium screens +) */}
                 <div className="hidden md:block">
@@ -91,7 +98,7 @@ function Footer() {
             <div className="flex flex-col text-left">
                 <span className='group cursor-pointer md:cursor-default justify-between flex pb-6' onClick={showLinks}>
                     <p className='font-oxygen font-bold text-2xl'>Quick Links</p>
-                    <p className='md:hidden text-3xl transition duration-300 font-bold group-hover:text-[#FC7753]'>+</p>
+                    <p className={toggleAnimation2 ? 'md:hidden text-3xl transition duration-300 font-bold group-hover:text-[#FC7753] rotate-45' : 'md:hidden text-3xl transition duration-300 font-bold group-hover:text-[#FC7753]'}>+</p>
                 </span>
                 {/* Normal menu (medium screens +) */}
                 <div className="hidden md:block">
@@ -146,7 +153,7 @@ function Footer() {
             <div className="flex flex-col text-left">
                 <span className='group cursor-pointer md:cursor-default justify-between flex pb-6' onClick={showIndustries}>
                     <p className='font-oxygen font-bold text-2xl'>Industries</p>
-                    <p className='md:hidden text-3xl transition duration-300 font-bold group-hover:text-[#FC7753]'>+</p>
+                    <p className={toggleAnimation3 ? 'md:hidden text-3xl transition duration-300 font-bold group-hover:text-[#FC7753] rotate-45' : 'md:hidden text-3xl transition duration-300 font-bold group-hover:text-[#FC7753]'}>+</p>
                 </span>
                 {/* Normal menu (medium screens +) */}
                 <div className="hidden md:block">
