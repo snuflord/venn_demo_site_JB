@@ -9,7 +9,7 @@ function TopTalent() {
     <>
     <div className="relative lg:mt-8 w-full">
         <section className='container z-0 max-w-8xl mx-auto justify-center items-center p-4 md:p-8 text-[#293135]'>
-            <img className='hidden xl:block absolute top-10 left-0 h-auto w-auto' src={topTalent} alt="" />
+            <img className='hidden xl:block absolute top-10 left-0 h-auto w-[45%]' src={topTalent} alt="" />
             <div className="flex flex-col h-auto lg:h-[907px] items-center justify-between md:flex-row gap-8 z-10">
                 <div className='hidden lg:block'></div>
                 <div className="relative z-20 flex flex-col text-left max-w-[40rem] lg:pb-40 lg:pt-40 bg-white border-none md:pl-3 rounded-2xl bg-opacity-70">
@@ -27,7 +27,7 @@ function TopTalent() {
 
     <div className="relative lg:mt-8 w-full">
         <section className='container z-0 max-w-8xl mx-auto justify-center items-center p-4 md:p-8 text-[#293135]'>
-            <img className='hidden xl:block absolute top-10 left-[7%] h-auto w-auto' src={topTalent2} alt="" />
+            <img className='hidden xl:block absolute top-10 left-[7%] h-auto w-[auto]' src={topTalent2} alt="" />
             {/* This video img causing issue */}
             <img className='block md:absolute top-10 right-0' src={videoGroup} alt="video player" />
             <div className="flex flex-col h-auto lg:h-[907px] items-center justify-between md:flex-row gap-8 z-10">
